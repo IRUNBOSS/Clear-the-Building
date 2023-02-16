@@ -52,8 +52,9 @@ public class Movement : MonoBehaviour
     }
     private bool OnGroundCheck()
     {
-        bool hit = Physics.Raycast(rayStartPoint.position, Vector3.down, 0.5f);
-        Debug.DrawRay(rayStartPoint.position, Vector3.down * 0.5f,Color.red);
+        bool hit = Physics.Raycast(rayStartPoint.position, -rayStartPoint.transform.up, 0.25f);
+        Debug.DrawRay(rayStartPoint.position, -rayStartPoint.transform.up * 0.25f, Color.red);
+       
         if (hit)
         {
             return true;
