@@ -6,6 +6,22 @@ public class Target : MonoBehaviour
 {
     [SerializeField] private int maxHealt = 2;
     private int _curretHealth;
+    public int GetHealth
+    {
+        get 
+        {
+            return _curretHealth;
+        }
+        set 
+        { 
+            _curretHealth= value;
+            if(_curretHealth > maxHealt)
+            {
+                _curretHealth = maxHealt;
+            }
+        }
+    }
+
     // Start is called before the first frame update
     void Start()
     {

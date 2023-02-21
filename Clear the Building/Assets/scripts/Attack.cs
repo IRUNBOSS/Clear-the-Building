@@ -6,14 +6,18 @@ public class Attack : MonoBehaviour
 {
     [SerializeField] private GameObject ammo;
     [SerializeField] private Transform fireTransform;
+    [SerializeField] private int maxAmmoCount = 5;
+     private int ammoCount = 0;
+    public int GetAmmo { get { return ammoCount; } 
+        set { ammoCount = value; 
+            if (ammoCount > maxAmmoCount) ammoCount = maxAmmoCount; } } 
 
     [SerializeField] private float fireRate = 0.5f;
-    [SerializeField] private int ammoCount = 8;
     private float _currentFireRate = 0f;
     // Start is called before the first frame update
     void Start()
     {
-        
+        ammoCount = maxAmmoCount;
     }
 
     // Update is called once per frame
